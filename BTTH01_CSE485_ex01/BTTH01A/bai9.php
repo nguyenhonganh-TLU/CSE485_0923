@@ -1,20 +1,26 @@
 <?php
 
-function convertToLowerCase($arr) {
-    return array_map('strtolower', $arr);
+function convertToLowercase($arr) {
+    $result = [];
+
+    foreach ($arr as $item) {
+        $result[] = strtolower((string) $item);
+    }
+
+    return $result;
 }
 
-$arrs1 = ['a', 'b', 'ABC'];
-$convertedArrs1 = convertToLowerCase($arrs1);
-print_r($convertedArrs1)."<br>";
+$arr1 = ['a', 'b', 'ABC'];
+$arr2 = ['1', 'B', 'C', 'E'];
+$arr3 = ['a', 0, null, false];
+
+$result1 = convertToLowercase($arr1);
+$result2 = convertToLowercase($arr2);
+$result3 = convertToLowercase($arr3);
 
 
-$arrs2 = ['1', 'B', 'C', 'E'];
-$convertedArrs2 = convertToLowerCase($arrs2);
-print_r($convertedArrs2)."<br>";
+print_r($result1);
+print_r($result2);
+print_r($result3);
 
-
-$arrs3 = ['a', 0, null, false];
-$convertedArrs3 = convertToLowerCase($arrs3);
-print_r($convertedArrs3);
 
