@@ -1,0 +1,37 @@
+{% extends 'layout_admin.html' %}
+
+{%block main%}
+    <main class="container mt-5 mb-5">
+        <div class="row">
+            <div class="col-sm">
+                <a href="?controller=author&action=add_author" class="btn btn-success">Thêm mới</a>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Tên tác giả</th>
+                            <th>Sửa</th>
+                            <th>Xóa</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                            {% set dem=0 %}
+                            {% for author in authorService %}
+                            {% set dem = dem+1 %}
+                                <tr>
+                                    <th scope="row"> {{dem}} </th>
+                                    <td> {{author.getNameAuthor()}} </td>
+                                    <td>
+                                        <a href="?controller=author&action=edit_author&id={{author.getIdAuthor()}}"> <i class="fa-solid fa-pen-to-square"></i> </a>
+                                    </td>
+                                    <td>
+                                        <a href="?controller=author&action=delete_author&id={{author.getIdAuthor()}}"> <i class="fa-solid fa-trash"></i> </a>
+                                    </td>
+                                </tr> 
+                            {% endfor %}    
+                    </tbody>
+                </table>   
+            </div>
+        </div>
+    </main>
+{%endblock%}

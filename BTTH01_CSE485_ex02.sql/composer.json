@@ -1,0 +1,13 @@
+{
+    "name": "admin/cse485_2023_btth03",
+    "autoload": {
+        "psr-4": {
+            "Admin\\Cse4852023Btth03\\": "src/"
+        }
+    },
+    "require": {
+        "phpunit/phpunit": "^9.5",
+        "twig/twig": "^3.5",
+        "phpmailer/phpmailer": "^6.8"
+    }
+}

@@ -1,0 +1,16 @@
+{% extends 'layout_admin.html' %}
+
+{%block main%}
+<main class="container">
+    <form action="" method="post"
+        style="width: 50%; background: #3d456a2e; border: 1px solid; border-radius: 10px; margin: 60px auto; padding: 30px;">
+        <h3 style="margin-bottom: 30px">
+            {{array.mess}}
+        </h3>
+        <div>
+            <input class="btn btn-success" type="submit" name='submit' value="xóa">
+            <a href="?controller=author" class="btn btn-warning" >quay lại</a>
+        </div>
+    </form>
+</main>
+{%endblock%}

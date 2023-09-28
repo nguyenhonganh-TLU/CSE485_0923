@@ -1,0 +1,21 @@
+{%extends 'layout.html'%}
+{%block main%}
+<main class="container mt-5">
+    <div class="row mb-5">
+        <div class="col-sm-4">
+            {% set path_img = article.getImage() == "" ? "default.jpg" : article.getImage()%}
+            <img src="assets//{{path_img}}" class="img-fluid" alt="...">
+        </div>
+        <div class="col-sm-8">
+            <h5 class="card-title mb-2">
+                <a href="" class="text-decoration-none">{{article.getTitle()}}</a>
+            </h5>
+            <p class="card-text"><span class=" fw-bold">Bài hát: </span>{{article.getNameSong()}}</p>
+            <p class="card-text"><span class=" fw-bold">Thể loại: </span>{{article.getIdCategory()}}</p>
+            <p class="card-text"><span class=" fw-bold">Tóm tắt: </span>{{article.getSummary()}}</p>
+            <p class="card-text"><span class=" fw-bold">Nội dung: </span>{{article.getContent()}}</p>
+            <p class="card-text"><span class=" fw-bold">Tác giả: </span>{{article.getIdAuthor()}}</p>
+        </div>
+    </div>
+</main>
+{%endblock%}

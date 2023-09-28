@@ -1,15 +1,26 @@
 <?php
-$servername = "localhost"; 
-$username = "root"; 
-$password = ""; 
-$dbname = "btth01_cse485";   
+class DBConnection{
+    private $conn=null;
 
-try {
-    $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
-    // Set the PDO error mode to exception
-    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    echo "Connected successfully";
-} catch(PDOException $e) {
-    echo "Connection failed: " . $e->getMessage();
+    public function __construct(){
+        // B1. Kết nối DB Server
+        try {
+            $this->conn = new PDO('mysql:host=localhost;dbname=btth01_cse485;port=3306', 'root','');
+        } 
+        catch (PDOException $e) {
+            echo $e->getMessage();
+        }
+    }
+    public function getConnection(){
+        return $this->conn;
+    }
+    public function runSql(string $sql,array $arguments=null)
+    {
+        if (!$arguments) {
+            return $this->conn->query($sql);
+        }
+        $statement = $this->conn->prepare($sql);
+        $statement->execute($arguments);
+        return $statement;
+    }
 }
-?>
